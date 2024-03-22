@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{> meta }}
+</head>
+<body>
+
+<div id="top"
+        class="block block-dark block-bb bg-gradient-accent-2 p-0 d-print-none">
+    <div class="container">
+        {{> navigation }}
+    </div>
+</div>
+
+<section id="handbook">
+    <section>
+        <div class="container">
+            <div class="row">
+                <aside id="sidebar" class="col-lg-3 col-md-12 d-print-none">
+                    <nav class="toc navigation text-truncate" data-ice="nav">
+                        <ul class="summary">
+                            {{#each articles}}
+                                <li class="{{this.type}}"><a href="{{this.href}}">{{this.title}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </nav>
+                </aside>
+
+                <div class="col-lg-9 col-md-12">
+                    <article class="content">
+
+                        <section>
+                            {{{ contents }}}
+                        </section>
+                        <footer class="d-print-none">
+                            {{#if previous}}
+                                <a href="{{ previous.href }}">
+                                    <i class="fa fa-chevron-left"></i>
+                                    <span>{{previous.title}}</span>
+                                </a>
+                            {{/if}}
+                            {{#if next}}
+                                <a href="{{ next.href }}">
+                                    <span>{{next.title}}</span>
+                                    <i class="fa fa-chevron-right"></i>
+                                </a>
+                            {{/if}}
+                        </footer>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</section>
+
+{{> footer }}
+
+{{> scripts }}
+</body>
+</html>
